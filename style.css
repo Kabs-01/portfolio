@@ -1,0 +1,905 @@
+/* ==========================================================================
+   TECHNICAL BLUEPRINT / GRAPH NOTEBOOK THEME
+   Juejeet Malakar Portfolio & Technical Profile
+   ========================================================================== */
+
+:root {
+  /* Color Palette matching user screenshot */
+  --bg-page: #f8fbfe;
+  --grid-line: rgba(70, 130, 200, 0.095);
+  --blueprint-blue: #23589c;
+  --blueprint-blue-dark: #19437a;
+  --blueprint-blue-light: #3b74bf;
+  --blueprint-border: #a6c2e2;
+  --blueprint-border-light: #d4e3f3;
+  --text-primary: #1f2937;
+  --text-muted: #53647a;
+  --text-heading: #23589c;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 8px rgba(35, 75, 125, 0.06);
+  --polaroid-shadow: 0 6px 18px rgba(20, 45, 80, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  /* Typography */
+  --font-mono: 'Space Mono', 'Courier Prime', 'Courier New', monospace;
+  --font-body: 'Courier Prime', 'Space Mono', 'Courier New', monospace;
+  
+  /* Layout */
+  --max-width: 1140px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base & Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-page);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+  /* Pure Uniform 20px Graph Notebook Grid */
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(35, 88, 156, 0.22);
+  color: var(--blueprint-blue-dark);
+}
+
+/* Page Outer Wrapper */
+.page-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 36px 64px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   TOP NAVIGATION
+   ========================================================================== */
+.top-nav {
+  width: 100%;
+  margin-bottom: 44px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0 14px;
+}
+
+.brand-title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  color: #111827;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.brand-title:hover {
+  color: var(--blueprint-blue);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-item {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.8px;
+  color: var(--blueprint-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  padding: 4px 6px;
+  border-radius: 2px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(35, 88, 156, 0.08);
+  color: var(--blueprint-blue-dark);
+}
+
+/* Edit Mode Toggle Button */
+.btn-edit-mode {
+  background: var(--blueprint-blue);
+  color: #ffffff;
+  border: 1px solid var(--blueprint-blue-dark);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: all var(--transition-fast);
+  letter-spacing: 0.5px;
+}
+
+.btn-edit-mode:hover {
+  background: var(--blueprint-blue-dark);
+  box-shadow: 0 2px 6px rgba(25, 67, 122, 0.25);
+}
+
+body.edit-mode-active .btn-edit-mode {
+  background: #059669;
+  border-color: #047857;
+}
+
+/* Nav Divider Line Across Header */
+.nav-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--blueprint-border);
+}
+
+/* ==========================================================================
+   MAIN CONTENT & SECTIONS
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.section {
+  width: 100%;
+}
+
+/* ==========================================================================
+   HERO / ABOUT SECTION
+   ========================================================================== */
+.hero-section {
+  margin-top: 6px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 52px;
+  align-items: flex-start;
+}
+
+/* Polaroid Photo Card */
+.polaroid-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.polaroid-card {
+  background: #ffffff;
+  padding: 12px 12px 24px 12px;
+  width: 235px;
+  border: 1px solid rgba(160, 185, 215, 0.3);
+  box-shadow: var(--polaroid-shadow);
+  transform: rotate(-1.5deg);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  cursor: default;
+  position: relative;
+  border-radius: 1px;
+}
+
+.polaroid-card:hover {
+  transform: rotate(0deg) scale(1.015);
+  box-shadow: 0 10px 24px rgba(15, 35, 65, 0.16);
+}
+
+.photo-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  background-color: #0f172a;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  filter: grayscale(100%) contrast(1.05) brightness(0.98);
+  display: block;
+}
+
+.photo-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 35, 65, 0.8);
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+}
+
+body.edit-mode-active .photo-overlay {
+  display: flex;
+}
+
+body.edit-mode-active .polaroid-card {
+  cursor: pointer;
+}
+
+.polaroid-caption {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Hero Narrative & Bio */
+.hero-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 2px;
+}
+
+.hero-heading {
+  font-family: var(--font-mono);
+  font-size: 2.35rem;
+  font-weight: 400;
+  color: var(--blueprint-blue);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  color: var(--blueprint-blue);
+  font-weight: 700;
+  animation: blink 1.05s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.hero-intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  line-height: 1.75;
+}
+
+.greeting-line {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+.bio-line {
+  color: #374151;
+  max-width: 720px;
+}
+
+.lab-note-line {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  max-width: 720px;
+}
+
+/* ==========================================================================
+   BLUEPRINT SECTION HEADERS & FRAMES
+   ========================================================================== */
+.blueprint-section-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 2px;
+  border-top: 1px solid var(--blueprint-border);
+  border-bottom: 1px solid var(--blueprint-border);
+  margin-bottom: 14px;
+}
+
+.section-title-left {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--blueprint-blue);
+  letter-spacing: 0.5px;
+}
+
+.section-title-right {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--blueprint-blue);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   QUALIFICATIONS TABLE
+   ========================================================================== */
+.blueprint-table-container {
+  background: #ffffff;
+  border: 1px solid var(--blueprint-border);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.blueprint-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.blueprint-table tr {
+  border-bottom: 1px solid var(--blueprint-border-light);
+  transition: background-color var(--transition-fast);
+}
+
+.blueprint-table tr:last-child {
+  border-bottom: none;
+}
+
+.blueprint-table tr:hover {
+  background-color: rgba(240, 246, 253, 0.6);
+}
+
+.blueprint-table td {
+  padding: 16px 20px;
+  vertical-align: middle;
+}
+
+.qual-col-date {
+  width: 160px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.qual-col-degree {
+  color: var(--blueprint-blue);
+  font-weight: 500;
+  width: 50%;
+}
+
+.qual-col-institution {
+  color: var(--text-primary);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.qual-col-action {
+  width: 36px;
+  text-align: center;
+  display: none;
+  padding: 0 6px;
+}
+
+body.edit-mode-active .qual-col-action {
+  display: table-cell;
+}
+
+.btn-remove-row {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #f87171;
+  border-radius: 3px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-remove-row:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.table-add-bar {
+  display: none;
+  padding: 10px;
+  background: #f8fafc;
+  border-top: 1px dashed var(--blueprint-border);
+  text-align: center;
+}
+
+body.edit-mode-active .table-add-bar {
+  display: block;
+}
+
+.btn-add-item {
+  background: rgba(35, 88, 156, 0.08);
+  border: 1px dashed var(--blueprint-blue);
+  color: var(--blueprint-blue);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-add-item:hover {
+  background: var(--blueprint-blue);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   SKILLSETS CARDS WITH PAPERCLIPS
+   ========================================================================== */
+.skills-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.skill-paper-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--blueprint-border);
+  padding: 28px 18px 20px 18px;
+  box-shadow: var(--card-shadow);
+  border-radius: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.skill-paper-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(35, 75, 125, 0.08);
+}
+
+/* Realistic Paperclip Overhanging Top Edge */
+.paperclip-graphic {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 42px;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+.paperclip-graphic svg {
+  width: 100%;
+  height: 100%;
+}
+
+.skill-title {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--blueprint-blue);
+  margin-top: 2px;
+}
+
+.skill-desc {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  line-height: 1.68;
+}
+
+.btn-remove-card {
+  display: none;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #f87171;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+body.edit-mode-active .btn-remove-card {
+  display: flex;
+}
+
+.btn-remove-card:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.skills-add-bar {
+  display: none;
+  margin-top: 18px;
+  text-align: center;
+}
+
+body.edit-mode-active .skills-add-bar {
+  display: block;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.blueprint-footer {
+  margin-top: 54px;
+  width: 100%;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--blueprint-border);
+  margin-bottom: 14px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.footer-status {
+  color: #059669;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.footer-copy {
+  letter-spacing: 0.8px;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-footer-link {
+  background: transparent;
+  border: 1px solid var(--blueprint-border);
+  color: var(--blueprint-blue);
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-footer-link:hover {
+  background: var(--blueprint-blue);
+  color: white;
+}
+
+/* ==========================================================================
+   EDIT MODE STYLES & FLOATING DOCK
+   ========================================================================== */
+body.edit-mode-active [data-editable="true"],
+body.edit-mode-active [data-editable="brandName"],
+body.edit-mode-active [data-editable="polaroidCaption"],
+body.edit-mode-active [data-editable="heroTitle"],
+body.edit-mode-active [data-editable="greetingLine"],
+body.edit-mode-active [data-editable="bioText"],
+body.edit-mode-active [data-editable="labNote"],
+body.edit-mode-active [data-editable="qualHeading"],
+body.edit-mode-active [data-editable="qualBadge"],
+body.edit-mode-active [data-editable="skillsHeading"],
+body.edit-mode-active [data-editable="skillsBadge"] {
+  outline: 1px dashed var(--blueprint-blue-light);
+  outline-offset: 3px;
+  cursor: text;
+  background: rgba(235, 245, 255, 0.5);
+  border-radius: 2px;
+}
+
+body.edit-mode-active [contenteditable="true"]:focus {
+  outline: 2px solid var(--blueprint-blue);
+  background: #ffffff;
+}
+
+/* Floating Bottom Control Dock */
+.edit-mode-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #1e293b;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 9999;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.edit-mode-active .edit-mode-dock {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dock-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dock-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+}
+
+.dock-pulse {
+  width: 8px;
+  height: 8px;
+  background: #38bdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+  animation: dock-pulse 1.8s infinite;
+}
+
+@keyframes dock-pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(56, 189, 248, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+}
+
+.dock-hint {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  max-width: 320px;
+}
+
+.dock-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.dock-btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.dock-btn-save {
+  background: #10b981;
+  color: white;
+}
+
+.dock-btn-save:hover {
+  background: #059669;
+}
+
+.dock-btn-reset {
+  background: #475569;
+  color: white;
+}
+
+.dock-btn-reset:hover {
+  background: #334155;
+}
+
+.dock-btn-exit {
+  background: transparent;
+  color: #94a3b8;
+  border-color: #475569;
+}
+
+.dock-btn-exit:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATION
+   ========================================================================== */
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  border-left: 4px solid var(--blueprint-blue);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slide-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.toast-success {
+  border-left-color: #10b981;
+}
+
+.toast.toast-info {
+  border-left-color: var(--blueprint-blue);
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   PRINT STYLESHEET
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+  }
+
+  .btn-edit-mode,
+  .edit-mode-dock,
+  .footer-actions,
+  .table-add-bar,
+  .skills-add-bar,
+  .btn-remove-row,
+  .btn-remove-card,
+  .toast-container {
+    display: none !important;
+  }
+
+  .polaroid-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    transform: none !important;
+  }
+
+  .blueprint-table-container,
+  .skill-paper-card {
+    box-shadow: none !important;
+    border-color: #bbb !important;
+  }
+
+  .page-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .polaroid-wrapper {
+    justify-content: flex-start;
+  }
+
+  .skills-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-wrapper {
+    padding: 16px 16px 60px;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skills-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qual-col-institution {
+    text-align: left;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .blueprint-table td {
+    padding: 12px 14px;
+  }
+
+  .dock-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

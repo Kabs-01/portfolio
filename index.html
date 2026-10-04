@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaushik Barman | Portfolio & Resume</title>
+  <meta name="description" content="Kaushik Barman - Computer Science student focusing on AI/ML, Cloud Virtualization, Linux Administration, and Networking.">
+  
+  <!-- Google Fonts: Space Mono & Courier Prime for technical blueprint / typewriter aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Blueprint Grid Container -->
+  <div class="page-wrapper">
+
+    <!-- Top Navigation Header -->
+    <header class="top-nav" id="top-nav">
+      <div class="nav-container">
+        <a href="#about" class="brand-title" id="brand-name" data-editable="brandName">KAUSHIK BARMAN</a>
+        
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="#about" class="nav-item">[ABOUT]</a>
+          <a href="#qualifications" class="nav-item">[QUALIFICATIONS]</a>
+          <a href="#skillsets" class="nav-item">[SKILLSETS]</a>
+          <button type="button" class="btn-edit-mode" id="btn-toggle-edit" aria-label="Toggle Edit Mode">
+            <span class="edit-icon">✏️</span> <span class="edit-text">[EDIT MODE]</span>
+          </button>
+        </nav>
+      </div>
+      <!-- Crisp Blueprint Line Across Header -->
+      <div class="nav-divider"></div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="main-content">
+
+      <!-- Hero / About Section -->
+      <section class="section hero-section" id="about" aria-labelledby="hero-heading">
+        <div class="hero-grid">
+          
+          <!-- Polaroid Photo Card -->
+          <div class="polaroid-wrapper">
+            <div class="polaroid-card" id="polaroid-card">
+              <div class="photo-container">
+                <img src="assets/profile.jpg" alt="Kaushik Barman Profile Photo" id="profile-img" class="profile-photo">
+                <div class="photo-overlay" id="photo-overlay" title="Click to change photo in Edit Mode">
+                  <span>📷 Change Photo</span>
+                </div>
+                <input type="file" id="photo-upload-input" accept="image/*" style="display: none;">
+              </div>
+              <div class="polaroid-caption" id="polaroid-caption" data-editable="polaroidCaption">profile photo</div>
+            </div>
+          </div>
+
+          <!-- Hero Narrative / Bio -->
+          <div class="hero-text-block">
+            <h1 class="hero-heading" id="hero-heading">
+              <span data-editable="heroTitle">hi there</span><span class="blinking-cursor">_</span>
+            </h1>
+
+            <div class="hero-intro-text">
+              <p class="greeting-line" data-editable="greetingLine">
+                Kaushik Barman here, nice to meet you 👋
+              </p>
+              
+              <p class="bio-line" data-editable="bioText">
+                I am a Computer Science student passionate about building intelligent systems and scalable infrastructure. Currently focusing on AI / ML, cloud virtualization, and DevOps practices.
+              </p>
+              
+              <p class="lab-note-line" data-editable="labNote">
+                This portfolio site is hosted as part of my Cloud Virtualization practical lab assignment.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Qualifications Section -->
+      <section class="section qualifications-section" id="qualifications" aria-labelledby="qual-heading">
+        
+        <!-- Section Bar / Banner -->
+        <div class="blueprint-section-bar">
+          <span class="section-title-left" id="qual-heading" data-editable="qualHeading">qualifications</span>
+          <span class="section-title-right" data-editable="qualBadge">[academic record]</span>
+        </div>
+
+        <!-- Qualifications Grid Table -->
+        <div class="blueprint-table-container">
+          <table class="blueprint-table" id="qualifications-table">
+            <tbody id="qualifications-tbody">
+              <tr class="qual-row">
+                <td class="qual-col-date" data-editable="true">2024 - 2027</td>
+                <td class="qual-col-degree" data-editable="true">Bachelor of Technology in Computer Science &amp; Engineering</td>
+                <td class="qual-col-institution" data-editable="true">Assam down town University</td>
+                <td class="qual-col-action"><button class="btn-remove-row" title="Delete row">×</button></td>
+              </tr>
+              <tr class="qual-row">
+                <td class="qual-col-date" data-editable="true">2022 - 2024</td>
+                <td class="qual-col-degree" data-editable="true">Higher Secondary Education (10+2 Science)</td>
+                <td class="qual-col-institution" data-editable="true">C.V. Raman Academy of Science</td>
+                <td class="qual-col-action"><button class="btn-remove-row" title="Delete row">×</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="table-add-bar" id="table-add-bar">
+            <button type="button" class="btn-add-item" id="btn-add-qualification">+ Add Qualification Record</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Skillsets Section -->
+      <section class="section skillsets-section" id="skillsets" aria-labelledby="skills-heading">
+        
+        <!-- Section Bar / Banner -->
+        <div class="blueprint-section-bar">
+          <span class="section-title-left" id="skills-heading" data-editable="skillsHeading">skillsets</span>
+          <span class="section-title-right" data-editable="skillsBadge">[core technical skills]</span>
+        </div>
+
+        <!-- Pinned Paperclip Cards Grid -->
+        <div class="skills-cards-grid" id="skills-grid">
+          
+          <!-- Skill Card 1 -->
+          <article class="skill-paper-card" id="skill-card-1">
+            <div class="paperclip-graphic" aria-hidden="true">
+              <!-- SVG Metallic Paperclip -->
+              <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4C8.686 4 6 6.686 6 10V36C6 40.418 9.582 44 14 44C18.418 44 22 40.418 22 36V12C22 8.686 19.314 6 16 6C12.686 6 10 8.686 10 12V34C10 35.105 10.895 36 12 36C13.105 36 14 35.105 14 34V13" 
+                      stroke="url(#clipGrad)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="clipGrad" x1="6" y1="4" x2="22" y2="44" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4a5568"/>
+                    <stop offset="0.3" stop-color="#cbd5e1"/>
+                    <stop offset="0.7" stop-color="#64748b"/>
+                    <stop offset="1" stop-color="#334155"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <button class="btn-remove-card" title="Delete card">×</button>
+            <h3 class="skill-title" data-editable="true">Web Development</h3>
+            <p class="skill-desc" data-editable="true">
+              Hands-on experience with HTML5, CSS3, JavaScript and responsive website design.
+            </p>
+          </article>
+
+          <!-- Skill Card 2 -->
+          <article class="skill-paper-card" id="skill-card-2">
+            <div class="paperclip-graphic" aria-hidden="true">
+              <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4C8.686 4 6 6.686 6 10V36C6 40.418 9.582 44 14 44C18.418 44 22 40.418 22 36V12C22 8.686 19.314 6 16 6C12.686 6 10 8.686 10 12V34C10 35.105 10.895 36 12 36C13.105 36 14 35.105 14 34V13" 
+                      stroke="url(#clipGrad2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="clipGrad2" x1="6" y1="4" x2="22" y2="44" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4a5568"/>
+                    <stop offset="0.3" stop-color="#cbd5e1"/>
+                    <stop offset="0.7" stop-color="#64748b"/>
+                    <stop offset="1" stop-color="#334155"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <button class="btn-remove-card" title="Delete card">×</button>
+            <h3 class="skill-title" data-editable="true">Programming</h3>
+            <p class="skill-desc" data-editable="true">
+              Working knowledge of C, C++, Python and fundamental data structures and algorithms.
+            </p>
+          </article>
+
+          <!-- Skill Card 3 -->
+          <article class="skill-paper-card" id="skill-card-3">
+            <div class="paperclip-graphic" aria-hidden="true">
+              <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4C8.686 4 6 6.686 6 10V36C6 40.418 9.582 44 14 44C18.418 44 22 40.418 22 36V12C22 8.686 19.314 6 16 6C12.686 6 10 8.686 10 12V34C10 35.105 10.895 36 12 36C13.105 36 14 35.105 14 34V13" 
+                      stroke="url(#clipGrad3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="clipGrad3" x1="6" y1="4" x2="22" y2="44" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4a5568"/>
+                    <stop offset="0.3" stop-color="#cbd5e1"/>
+                    <stop offset="0.7" stop-color="#64748b"/>
+                    <stop offset="1" stop-color="#334155"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <button class="btn-remove-card" title="Delete card">×</button>
+            <h3 class="skill-title" data-editable="true">AI &amp; Technology</h3>
+            <p class="skill-desc" data-editable="true">
+              Exploring artificial intelligence, generative AI, machine learning concepts and APIs.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="skills-add-bar" id="skills-add-bar">
+          <button type="button" class="btn-add-item" id="btn-add-skill">+ Add Skill Card</button>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Technical Blueprint Footer -->
+    <footer class="blueprint-footer">
+      <div class="footer-divider"></div>
+      <div class="footer-content">
+        <span class="footer-status">● SYSTEM STATUS: ONLINE</span>
+        <span class="footer-copy">HOSTED ASSIGNMENT // CLOUD VIRTUALIZATION</span>
+        <div class="footer-actions">
+          <button type="button" class="btn-footer-link" id="btn-print-cv" title="Print or save as PDF">🖨️ [PRINT / PDF]</button>
+          <button type="button" class="btn-footer-link" id="btn-export-json" title="Download your current data as data.js">💾 [DOWNLOAD DATA.JS]</button>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Floating Edit Mode Control Dock (Visible in Edit Mode) -->
+  <aside class="edit-mode-dock" id="edit-mode-dock" aria-label="Edit Mode Controls">
+    <div class="dock-container">
+      <div class="dock-badge">
+        <span class="dock-pulse"></span>
+        <span>EDIT MODE ACTIVE</span>
+      </div>
+      <div class="dock-hint">Click any text directly to edit. Click photo to upload new picture.</div>
+      <div class="dock-buttons">
+        <button type="button" class="dock-btn dock-btn-save" id="btn-save-changes">✓ Save Changes</button>
+        <button type="button" class="dock-btn dock-btn-reset" id="btn-reset-default">↺ Reset from data.js</button>
+        <button type="button" class="dock-btn dock-btn-exit" id="btn-exit-edit">✕ Exit</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- User Editable Data Configuration File -->
+  <script src="data.js"></script>
+  <!-- Interactive Engine -->
+  <script src="script.js"></script>
+</body>
+</html>
